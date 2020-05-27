@@ -1,0 +1,9 @@
+body{
+    text-align: center;
+}
+
+#board td{
+    background-color: antiquewhite;
+    height: 200px;
+    width: 200px;
+}
