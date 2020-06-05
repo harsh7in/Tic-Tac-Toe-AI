@@ -15,6 +15,42 @@ function isRowSame(r) {
 
 }
 
+function isColSame(c) {
+    let col = [
+        boxclick.children[0].children[0].children[c - 1],
+        boxclick.children[0].children[1].children[c - 1],
+        boxclick.children[0].children[2].children[c - 1],
+    ]
+    let winCondition = game.Turn + game.Turn + game.Turn
+    if (col.map(item => item.textContent).join('') === winCondition) {
+        alert(" Game Over   ||   Winner =>  " + game.Turn)
+    }
+}
+
+function isDigSame() {
+    let leftdig = [
+        boxclick.children[0].children[0].children[0],
+        boxclick.children[0].children[1].children[1],
+        boxclick.children[0].children[2].children[2],
+    ]
+
+    let rightdig = [
+        boxclick.children[0].children[0].children[2],
+        boxclick.children[0].children[1].children[1],
+        boxclick.children[0].children[2].children[0],
+    ]
+
+    let winCondition = game.Turn + game.Turn + game.Turn
+    if (leftdig.map(item => item.textContent).join('') === winCondition) {
+        alert(" Game Over   ||   Winner =>  " + game.Turn)
+    }
+    if (rightdig.map(item => item.textContent).join('') === winCondition) {
+        alert(" Game Over   ||   Winner =>  " + game.Turn)
+    }
+
+
+}
+
 function boxClicked(r,c)
 {
     game.move++;
@@ -25,7 +61,8 @@ function boxClicked(r,c)
     // console.log(game.move)
     
     isRowSame(r)
-     
+    isColSame(c) 
+    isDigSame()
     nextTurn()
 
     if (game.move === 9)
