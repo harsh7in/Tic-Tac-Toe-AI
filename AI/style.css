@@ -1,0 +1,14 @@
+body{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+#board td{
+    background-color: antiquewhite;
+    height: 200px;
+    width: 200px;
+    font-size: 40pt;
+    border-radius: 10px;
+    border: solid saddlebrown 3px;
+}
