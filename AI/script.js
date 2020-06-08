@@ -51,6 +51,47 @@ function isDigSame() {
 
 }
 
+function aiTurn(r,c){
+    game.move++;
+    console.log('box clicked=', r, c);
+
+    let click = boxclick.children[0].children[r - 1].children[c - 1]
+    click.textContent = game.Turn
+
+}
+
+function bestmove(){
+
+    let space=[
+        boxclick.children[0].children[0].children[0],
+        boxclick.children[0].children[0].children[1],
+        boxclick.children[0].children[0].children[2],
+        boxclick.children[0].children[1].children[0],
+        boxclick.children[0].children[1].children[1],
+        boxclick.children[0].children[1].children[2],
+        boxclick.children[0].children[2].children[0],
+        boxclick.children[0].children[2].children[1],
+        boxclick.children[0].children[2].children[2],
+    ]
+
+
+    
+    for(let i=0;i<9;i++){
+        if (space[i].textContent == "") {
+            aiTurn( Math.floor(i/3)+1 , (i%3)+1 ) 
+            break;
+
+            
+        }
+    }
+
+
+
+
+}
+
+
+
 
 
 function boxClicked(r,c)
@@ -66,6 +107,7 @@ function boxClicked(r,c)
     isColSame(c) 
     isDigSame()
     nextTurn()
+    bestmove()
 
     if (game.move === 9)
         alert("Game Over")
