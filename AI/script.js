@@ -1,5 +1,17 @@
 const boxclick=document.getElementById('board')
 
+let space = [
+    boxclick.children[0].children[0].children[0],
+    boxclick.children[0].children[0].children[1],
+    boxclick.children[0].children[0].children[2],
+    boxclick.children[0].children[1].children[0],
+    boxclick.children[0].children[1].children[1],
+    boxclick.children[0].children[1].children[2],
+    boxclick.children[0].children[2].children[0],
+    boxclick.children[0].children[2].children[1],
+    boxclick.children[0].children[2].children[2],
+]
+
 const game = {
     State: 0,
     Turn: 'X',
@@ -61,20 +73,6 @@ function aiTurn(r,c){
 }
 
 function bestmove(){
-
-    let space=[
-        boxclick.children[0].children[0].children[0],
-        boxclick.children[0].children[0].children[1],
-        boxclick.children[0].children[0].children[2],
-        boxclick.children[0].children[1].children[0],
-        boxclick.children[0].children[1].children[1],
-        boxclick.children[0].children[1].children[2],
-        boxclick.children[0].children[2].children[0],
-        boxclick.children[0].children[2].children[1],
-        boxclick.children[0].children[2].children[2],
-    ]
-
-
     
     for(let i=0;i<9;i++){
         if (space[i].textContent == "") {
@@ -85,12 +83,10 @@ function bestmove(){
         }
     }
 
-
+    game.Turn = 'X'
 
 
 }
-
-
 
 
 
@@ -123,9 +119,9 @@ function nextTurn(){
 
     if(game.Turn === 'X')
         game.Turn='O'
-    else game.Turn='X'
 
 
-    playerSpan.textContent=game.Turn
+
+    playerSpan.textContent= 'X'
 
 }
